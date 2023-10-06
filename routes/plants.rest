@@ -1,0 +1,57 @@
+### Get all plants
+
+GET http://localhost:3000/api/plants
+
+
+### Create plant
+POST http://localhost:3000/api/plants
+Content-Type: application/json
+
+{
+    "name": "TEST tasków",
+    "comment": "",
+    "tasks": [
+        {
+          "name": "Podlewanie",
+          "description": "",
+          "rRule": "DTSTART;TZID=Europe/Warsaw:19970902T090000;RRULE:FREQ=DAILY;COUNT=100"
+        },
+        {
+          "name": "Nawożenie",
+          "description": "",
+          "rRule": "DTSTART;TZID=Europe/Warsaw:19970902T090000;RRULE:FREQ=DAILY;COUNT=100"
+        }
+    ]
+}
+
+
+### Update plant
+PATCH http://localhost:3000/api/plants/123
+Content-Type: application/json
+{
+    "name": "Strelicja Nicolai [EDITED]",
+    "tasks": [
+        {
+          "name": "Podlewanie",
+          "description": "",
+          "rRule": "DTSTART;TZID=Europe/Warsaw:19970902T090000;RRULE:FREQ=DAILY;COUNT=100"
+        }
+    ]
+}
+
+
+### Update plant task completion date
+PATCH http://localhost:3000/api/plants/6536c0bac59b2235f7ee0d0b/tasks/653e903c30ac4a2f0970e5b1/completed
+Content-Type: application/json
+
+{
+  "comment": "",
+  "attachments": [
+    { "name": "Photo.jpg", "mimeType": "image/jpeg" }
+  ]
+}
+
+
+### Delete plant
+DELETE http://localhost:3000/api/plants/123
+Content-Type: application/json

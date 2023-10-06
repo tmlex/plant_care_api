@@ -1,0 +1,40 @@
+### Get all users
+
+GET http://localhost:3000/api/users
+
+### Create user
+
+POST http://localhost:3000/api/users/register
+Content-Type: application/json
+
+{
+    "username": "tester",
+    "password": "bardzotrudnehaslo"
+}
+
+### Login via password
+
+POST http://localhost:3000/api/users/login/password
+Content-Type: application/json
+
+{
+    "username": "tester",
+    "password": "bardzotrudnehaslo"
+}
+
+
+### Login via Google
+
+GET http://localhost:3000/api/users/login/google
+Content-Type: application/json
+
+
+### Logout
+
+GET http://localhost:3000/api/users/logout
+Content-Type: application/json
+
+
+###
+
+GET http://localhost:3000/api/users/active

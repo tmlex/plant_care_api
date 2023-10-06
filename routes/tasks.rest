@@ -1,0 +1,28 @@
+### Get all user tasks
+
+GET http://localhost:3000/api/tasks
+
+
+### Create task
+POST http://localhost:3000/api/tasks
+Content-Type: application/json
+
+{
+    "name": "Podlewanie",
+    "comment": "",
+    "rRule": "DTSTART;TZID=Europe/Warsaw:19970902T090000;RRULE:FREQ=DAILY;COUNT=100"
+}
+
+
+### Update task
+PATCH http://localhost:3000/api/tasks/653acec91fd594042335a318
+Content-Type: application/json
+
+{
+    "comment": "Test"
+}
+
+
+### Delete task
+DELETE http://localhost:3000/api/tasks/653acec91fd594042335a318
+Content-Type: application/json
