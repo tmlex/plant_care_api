@@ -1,0 +1,25 @@
+### Get logs
+
+GET http://localhost:3000/api/logs/653e903c30ac4a2f0970e5b1
+
+
+### Create log
+
+POST http://localhost:3000/api/logs/653e903c30ac4a2f0970e5b1
+Content-Type: application/json
+
+{
+    "comment": "Test",
+    "attachments": [
+        {
+            "name": "1.jpg",
+            "mimeType": "image/jpeg",
+            "link": "https://zielony-parapet.pl/21907-thickbox_default/strelitzia-nicolai-strelicja-biala.jpg"
+        },
+        {
+            "name": "2.jpg",
+            "mimeType": "image/jpeg",
+            "link": "https://zaroslo.pl/sklep/wp-content/uploads/2022/12/Strelitzia-nicolai.jpg"
+        }
+    ]
+}
