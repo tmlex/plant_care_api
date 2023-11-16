@@ -3,6 +3,11 @@
 GET http://localhost:3000/api/plants
 
 
+### Get plant logs
+
+GET http://localhost:3000/api/plants/6553e43dcacc4fb756396361/logs
+
+
 ### Create plant
 POST http://localhost:3000/api/plants
 Content-Type: application/json

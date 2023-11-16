@@ -1,6 +1,5 @@
 const Plant = require('../models/plant')
 const Log = require('../models/log')
-const mongoose = require('mongoose')
 
 const getPlants = async (req, res) => {
   try {
@@ -21,6 +20,16 @@ const getPlantById = async (req, res) => {
   try {
     const plant = await Plant.findById(req.params.id)
     res.send(plant)
+  } catch {
+    res.sendStatus(500)
+  }
+}
+
+const getPlantLogs = async (req, res) => {
+  try {
+    const { plantId } = req.params
+    const logs = await Log.find({ plantId }).sort({ createdDate: 'desc' })
+    res.send(logs)
   } catch {
     res.sendStatus(500)
   }
@@ -71,7 +80,6 @@ const updateTaskComment = async (req, res) => {
 const updateTaskCompletionDate = async (req, res) => {
   try {
     const date = new Date()
-    const userId = req.user._id
     const { plantId, taskId } = req.params
     await Plant.findByIdAndUpdate(plantId, {
       $set: {
@@ -80,8 +88,8 @@ const updateTaskCompletionDate = async (req, res) => {
     })
     await Log.create({
       createdDate: date,
-      userId,
-      taskId
+      taskId,
+      plantId
     })
     res.sendStatus(200)
   } catch (err) {
@@ -102,6 +110,7 @@ const deletePlant = async (req, res) => {
 module.exports = {
   getPlants,
   getPlantById,
+  getPlantLogs,
   addPlant,
   updatePlant,
   deletePlant,

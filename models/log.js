@@ -8,8 +8,9 @@ const AttachmentSchema = new Schema({
 })
 
 const LogSchema = new Schema({
-    taskId: { type: Schema.Types.ObjectId, ref: 'Task' },
-    createdDate: { type: Date, default: Date.now() },
+    taskId: { type: Schema.Types.ObjectId, ref: 'Task', required: true },
+    plantId: { type: Schema.Types.ObjectId, ref: 'Plant', required: true },
+    createdDate: { type: Date, default: Date.now(), required: true },
     comment: String,
     attachments: [{ type: AttachmentSchema }]
 })

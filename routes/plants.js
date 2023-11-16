@@ -6,6 +6,8 @@ router.get('/', controller.getPlants)
 
 router.get('/:id', controller.getPlantById)
 
+router.get('/:plantId/logs', controller.getPlantLogs)
+
 router.post('/', controller.addPlant)
 
 router.patch('/:id', controller.updatePlant)
