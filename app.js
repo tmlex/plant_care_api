@@ -71,6 +71,7 @@ app.use('/api/plants', require('./routes/plants'))
 app.use('/api/users', require('./routes/users'))
 app.use('/api/tasks', require('./routes/tasks'))
 app.use('/api/logs', require('./routes/logs'))
+app.use('/api/assistant', require('./routes/assistant'))
 
 
 app.listen(port, () => {
